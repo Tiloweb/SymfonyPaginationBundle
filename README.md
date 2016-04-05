@@ -33,7 +33,7 @@ class AppKernel extends Kernel
         $bundles = array(
             // ...
 
-            new Tiloweb\Pagination\PaginationBundle\(),
+            new Tiloweb\Pagination\PaginationBundle\TilowebPaginationBundle(),
         );
 
         // ...
