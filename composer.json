@@ -17,9 +17,7 @@
     "twig/twig":                "~1.12|~2"
   },
   "autoload": {
-    "psr-4": {
-      "Tiloweb\\PaginationBundle": ""
-    }
+    "psr-4": { "Tiloweb\\PaginationBundle\\": "" }
   },
   "minimum-stability": "stable"
 }
