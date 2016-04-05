@@ -19,5 +19,6 @@
     "psr-0": { "Tiloweb\\PaginationBundle\\": "" }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "target-dir" : "Tiloweb/PaginationBundle"
 }
