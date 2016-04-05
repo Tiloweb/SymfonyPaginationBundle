@@ -6,7 +6,7 @@
  * Time: 10:24
  */
 
-namespace Tiloweb\Pagination\PaginationBundle\Twig\Extension;
+namespace Tiloweb\PaginationBundle\Twig\Extension;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 

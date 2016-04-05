@@ -1,6 +1,6 @@
 <?php
 
-namespace Tiloweb\Pagination\PaginationBundle;
+namespace Tiloweb\PaginationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
