@@ -89,3 +89,36 @@ class User extends EntityRepository
     }
 }
 ```
+
+Step 4: Make the request in the controller
+---------------------------------
+
+```php
+<?php
+// Bundle/Controller/DefaultController.php
+namespace Bundle\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/user", name="app_list_user")
+     */
+    public function listUserAction(Request $request)
+    {
+        $db = $this->getDoctrine()->getManager();
+
+        $listUser = $db->getRepository('AppBundle:User')->findByPage(
+            $request->query->getInt('page', 1),
+            5
+        );
+
+        return $this->render('listUser.html.twig', array(
+            'listUser' => $listUser
+        ));
+    }
+}
+```
