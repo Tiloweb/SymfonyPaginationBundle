@@ -1,3 +1,8 @@
+Usage
+=====
+
+This Bundle made easy to use the Doctrine\Paginator method to optimally paginate your requests. The pagination always use the `GET $page` to control on wich page you are, so you don't have to worry about the route.
+
 Installation
 ============
 
