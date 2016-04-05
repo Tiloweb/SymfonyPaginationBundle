@@ -20,5 +20,6 @@
     "psr-4": {
       "Tiloweb\\TilowebPaginationBundle\\": ""
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
