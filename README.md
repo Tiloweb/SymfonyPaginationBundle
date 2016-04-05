@@ -122,3 +122,38 @@ class DefaultController extends Controller
     }
 }
 ```
+
+Step 5: Integrate in Twig
+---------------------------------
+
+```twig
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lastname</th>
+            <th>Firstname</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in listUser %}
+            <tr>
+                <td>{{ user.lastname | upper }}</td>
+                <td>{{ user.firstname | capitalize }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2" class="text-center">
+                    <em>No Users</em>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2">
+                {{ pagination(listUser) }}
+            </td>
+        </tr>
+    </tfoot>
+</table>
+```
