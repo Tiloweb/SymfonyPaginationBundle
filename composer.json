@@ -1,5 +1,5 @@
 {
-  "name": "tiloweb-pagination-bundle",
+  "name": "tiloweb/pagination-bundle",
   "description": "/",
   "type": "symfony-bundle",
   "keywords": ["pager", "paginator", "pagination", "symfony2", "bundle", "tiloweb"],
