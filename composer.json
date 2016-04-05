@@ -18,5 +18,6 @@
   "autoload": {
     "psr-0": { "Tiloweb\\PaginationBundle\\": "" }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
