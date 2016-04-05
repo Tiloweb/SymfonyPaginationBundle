@@ -105,7 +105,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/user", name="app_list_user")
+     * @Route("/user/", name="app_list_user")
      */
     public function listUserAction(Request $request)
     {
@@ -152,6 +152,90 @@ Step 5: Integrate in Twig
         <tr>
             <td colspan="2">
                 {{ pagination(listUser) }}
+            </td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+Step 6: Enjoy
+---------------------------------
+
+```html
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lastname</th>
+            <th>Firstname</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>HENRY</td>
+            <td>Thibault</td>
+        </tr>
+        <tr>
+            <td>LAZZAROTTO</td>
+            <td>Fabrice</td>
+        </tr>
+        <tr>
+            <td>CHEHAMI</td>
+            <td>Guillaume</td>
+        </tr>
+        <tr>
+            <td>HOUDAYER</td>
+            <td>Gaël</td>
+        </tr>
+        <tr>
+            <td>PINAIRE</td>
+            <td>Anaïs</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=1" class="page-link">
+                            &lt;&lt;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=2" class="page-link">
+                            &lt;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=1" class="page-link">
+                            1
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=2" class="page-link">
+                            2
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="/app_dev.php/user/?page=3" class="page-link">
+                            3
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=4" class="page-link">
+                            4
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=4" class="page-link">
+                            &gt;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/app_dev.php/user/?page=4" class="page-link">
+                            &gt;&gt;
+                        </a>
+                    </li>
+                </ul>
             </td>
         </tr>
     </tfoot>
