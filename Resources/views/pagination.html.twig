@@ -3,12 +3,12 @@
     <ul class="pagination">
         {% if page > 1 %}
             <li class="page-item">
-                <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'page': 1})) }}" class="page-link">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': 1}))) }}" class="page-link">
                     <<
                 </a>
             </li>
             <li class="page-item">
-                <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'page': page - 1})) }}" class="page-link">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': page - 1}))) }}" class="page-link">
                     <
                 </a>
             </li>
@@ -17,7 +17,7 @@
         {# Affichage de toutes les pages entre p-4 et p+4 sauf si < 1 ou > nbPages #}
         {% for p in range(max(page - 4, 1), min(page + 4, pages)) %}
             <li {% if p == page %}class="page-item active"{% else %}class="page-item"{% endif %}>
-                <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'page': p})) }}" class="page-link">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': p}))) }}" class="page-link">
                     {{ p }}
                 </a>
             </li>
@@ -25,12 +25,12 @@
 
         {% if page < pages %}
             <li class="page-item">
-                <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'page': page + 1})) }}" class="page-link">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': page +1 }))) }}" class="page-link">
                     >
                 </a>
             </li>
             <li class="page-item">
-                <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'page': pages})) }}" class="page-link">
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': pages}))) }}" class="page-link">
                     >>
                 </a>
             </li>
