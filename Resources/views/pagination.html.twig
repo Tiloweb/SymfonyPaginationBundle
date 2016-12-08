@@ -16,7 +16,7 @@
 
         {# Affichage de toutes les pages entre p-4 et p+4 sauf si < 1 ou > nbPages #}
         {% for p in range(max(page - 4, 1), min(page + 4, pages)) %}
-            <li {% if p == page %}class="page-item active"{% else %}class="page-item"{% endif %}>
+            <li {% if p == page %}class="page-item active"{% else %}class="page-item hidden-xs"{% endif %}>
                 <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({'page': p}))) }}" class="page-link">
                     {{ p }}
                 </a>

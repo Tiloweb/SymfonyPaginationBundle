@@ -184,16 +184,24 @@ Step 6: Enjoy
             <td>Fabrice</td>
         </tr>
         <tr>
-            <td>CHEHAMI</td>
-            <td>Guillaume</td>
+            <td>MORIN</td>
+            <td>Matthias</td>
         </tr>
         <tr>
             <td>HOUDAYER</td>
             <td>Gaël</td>
         </tr>
         <tr>
-            <td>PINAIRE</td>
-            <td>Anaïs</td>
+            <td>MAHÉ</td>
+            <td>Alexandre</td>
+        </tr>
+        <tr>
+            <td>GRÉAUX</td>
+            <td>Tony</td>
+        </tr>
+        <tr>
+            <td>CICHOWLAS</td>
+            <td>Cédric</td>
         </tr>
     </tbody>
     <tfoot>
