@@ -69,7 +69,7 @@ class User extends EntityRepository
             );
         }
 
-        if(!is_numeric($page)) {
+        if(!is_numeric($max)) {
             throw new \InvalidArgumentException(
                 '$max must be an integer ('.gettype($max).' : '.$max.')'
             );
