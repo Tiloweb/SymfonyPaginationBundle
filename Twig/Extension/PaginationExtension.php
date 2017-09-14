@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thibaulthenry
- * Date: 05/04/2016
- * Time: 10:24
- */
-
 namespace Tiloweb\PaginationBundle\Twig\Extension;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -31,9 +24,11 @@ class PaginationExtension extends \Twig_Extension
         return 'tiloweb_pagination';
     }
 
-    public function paginationFunction(Paginator $paginator) {
+    public function paginationFunction(Paginator $paginator, $get = 'page') {
         return $this->template->render('TilowebPaginationBundle::pagination.html.twig', array(
             'pages' => ceil($paginator->count() / $paginator->getQuery()->getMaxResults()),
+            'get' => $get
         ));
     }
 }
+
