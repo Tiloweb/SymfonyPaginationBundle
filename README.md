@@ -1,7 +1,7 @@
 Usage
 =====
 
-This Bundle made easy to use the Doctrine\Paginator method to optimally paginate your requests. The pagination always use the `GET $page` to control on wich page you are, so you don't have to worry about the route.
+This Bundle made easy to use the Doctrine\Paginator method to optimally paginate your requests.
 
 Installation
 ============
@@ -63,18 +63,6 @@ class User extends EntityRepository
 {
     public function findByPage($page = 1, $max = 10)
     {
-        if(!is_numeric($page)) {
-            throw new \InvalidArgumentException(
-                '$page must be an integer ('.gettype($page).' : '.$page.')'
-            );
-        }
-
-        if(!is_numeric($page)) {
-            throw new \InvalidArgumentException(
-                '$max must be an integer ('.gettype($max).' : '.$max.')'
-            );
-        }
-        
         $dql = $this->createQueryBuilder('user');
         $dql->orderBy('user.lastname', 'DESC');
 
@@ -127,6 +115,7 @@ class DefaultController extends Controller
     }
 }
 ```
+Note the `$request->query->getInt('page', 1)`, you can choose the name of the $_GET parameter, but it will be `page` by default.
 
 Step 5: Integrate in Twig
 ---------------------------------
@@ -156,12 +145,13 @@ Step 5: Integrate in Twig
     <tfoot>
         <tr>
             <td colspan="2">
-                {{ pagination(listUser) }}
+                {{ pagination(listUser, 'page') }}
             </td>
         </tr>
     </tfoot>
 </table>
 ```
+Use the function `{{ pagination(Paginator, get) }}` to render the pagination. the `paginator` parameter is your `Paginator` object, and the `get` parameter (values `page` by default) is the name of the $_GET parameter you want your pagination to listen.
 
 Step 6: Enjoy
 ---------------------------------
