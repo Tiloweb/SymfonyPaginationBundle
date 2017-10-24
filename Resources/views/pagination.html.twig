@@ -2,14 +2,14 @@
     {% set page =  app.request.query.int(get, 1) %}
     <ul class="pagination">
         {% if pages > 2 %}
-            <li class="page-item {% if page == 1 %}disabled{% endif %}">
+            <li class="page-item start {% if page == 1 %}disabled{% endif %}">
                 <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): 1}))) }}" class="page-link">
                     <<
                 </a>
             </li>
         {% endif %}
 
-        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+        <li class="page-item prev {% if page == 1 %}disabled{% endif %}">
             <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page - 1}))) }}" class="page-link" {% if page > 1 %}rel="prev"{% endif %}>
                 <
             </a>
@@ -24,14 +24,14 @@
             </li>
         {% endfor %}
 
-        <li class="page-item {% if page == pages %}disabled{% endif %}">
+        <li class="page-item next {% if page == pages %}disabled{% endif %}">
             <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page +1 }))) }}" class="page-link" {% if page < pages %}rel="next"{% endif %}>
                 >
             </a>
         </li>
 
         {% if pages > 2 %}
-            <li class="page-item {% if page == pages %}disabled{% endif %}">
+            <li class="page-item end {% if page == pages %}disabled{% endif %}">
                 <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): pages}))) }}" class="page-link">
                     >>
                 </a>
