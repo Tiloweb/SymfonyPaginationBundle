@@ -6,10 +6,12 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 class PaginationExtension extends \Twig_Extension
 {
     private $template;
+    private $templateFile;
 
-    public function __construct(\Twig_Environment $template)
+    public function __construct(\Twig_Environment $template, $templateFile)
     {
         $this->template = $template;
+        $this->templateFile = $templateFile;
     }
 
     public function getFunctions() {
@@ -25,10 +27,9 @@ class PaginationExtension extends \Twig_Extension
     }
 
     public function paginationFunction(Paginator $paginator, $get = 'page') {
-        return $this->template->render('TilowebPaginationBundle::pagination.html.twig', array(
+        return $this->template->render($this->templateFile, array(
             'pages' => ceil($paginator->count() / $paginator->getQuery()->getMaxResults()),
             'get' => $get
         ));
     }
 }
-

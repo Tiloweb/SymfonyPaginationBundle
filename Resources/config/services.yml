@@ -2,6 +2,6 @@ services:
     tiloweb_pagination.twig_extension:
         class: Tiloweb\PaginationBundle\Twig\Extension\PaginationExtension
         public: false
-        arguments: ["@twig"]
+        arguments: ["@twig", "%tiloweb_pagination.template%"]
         tags:
             - { name: twig.extension }
