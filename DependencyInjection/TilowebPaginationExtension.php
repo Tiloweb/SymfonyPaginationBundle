@@ -22,7 +22,13 @@ class TilowebPaginationExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        foreach ($config as $name => $node) {
+            $container->setParameter('tiloweb_pagination.'.$name, $node);
+        }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        return $config;
     }
 }
