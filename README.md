@@ -198,12 +198,12 @@ Step 6: Enjoy
         <tr>
             <td colspan="2">
                 <ul class="pagination">
-                    <li class="page-item">
+                    <li class="page-item start">
                         <a href="/app_dev.php/user/?page=1" class="page-link disabled">
                             &lt;&lt;
                         </a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item prev">
                         <a href="/app_dev.php/user/?page=2" class="page-link disabled" rel="prev">
                             &lt;
                         </a>
@@ -228,12 +228,12 @@ Step 6: Enjoy
                             4
                         </a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item next">
                         <a href="/app_dev.php/user/?page=4" class="page-link" rel="next">
                             &gt;
                         </a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item end">
                         <a href="/app_dev.php/user/?page=4" class="page-link">
                             &gt;&gt;
                         </a>
