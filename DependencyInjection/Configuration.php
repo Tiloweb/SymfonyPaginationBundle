@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('template')
-                ->defaultValue('TilowebPaginationBundle::pagination.html.twig')
+                ->defaultValue('@TilowebPagination/pagination.html.twig')
                 ->end()
             ->end();
 
