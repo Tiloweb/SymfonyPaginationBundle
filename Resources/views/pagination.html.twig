@@ -1,5 +1,4 @@
 {% if pages > 1 %}
-    {% set page =  app.request.query.int(get, 1) %}
     <ul class="pagination">
         {% if pages > 2 %}
             <li class="page-item start {% if page == 1 %}disabled{% endif %}">
@@ -25,7 +24,7 @@
         {% endfor %}
 
         <li class="page-item next {% if page == pages %}disabled{% endif %}">
-            <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page +1 }))) }}" class="page-link" {% if page < pages %}rel="next"{% endif %}>
+            <a href="{{ page < pages ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page +1 }))) : '#' }}" class="page-link" {% if page < pages %}rel="next"{% endif %}>
                 >
             </a>
         </li>
