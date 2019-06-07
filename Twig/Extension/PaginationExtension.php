@@ -39,7 +39,7 @@ class PaginationExtension extends \Twig_Extension
     public function paginationFunction(Paginator $paginator, $get = 'page') {
         $request = $this->request->getCurrentRequest();
         $pages = ceil($paginator->count() / $paginator->getQuery()->getMaxResults());
-        $page = $request->query->getInt($get);
+        $page = $request->query->getInt($get, 1);
 
         if($page > $pages) {
             $page = 1;
