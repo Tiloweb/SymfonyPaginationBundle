@@ -17,15 +17,17 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $root = new TreeBuilder('tiloweb_pagination');
-
-        $root
+        $treeBuilder = new TreeBuilder('tiloweb_pagination');
+        
+        $rootNode = $treeBuilder->getRootNode();
+        
+        $rootNode
             ->children()
                 ->scalarNode('template')
                 ->defaultValue('@TilowebPagination/pagination.html.twig')
                 ->end()
             ->end();
-
+        
         return $treeBuilder;
     }
 }
