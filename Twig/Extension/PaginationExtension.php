@@ -4,8 +4,11 @@ namespace Tiloweb\PaginationBundle\Twig\Extension;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class PaginationExtension extends \Twig_Extension
+class PaginationExtension extends AbstractExtension
 {
     private $template;
     private $templateFile;
@@ -17,7 +20,7 @@ class PaginationExtension extends \Twig_Extension
      * @param $templateFile
      * @param RequestStack $requestStack
      */
-    public function __construct(\Twig_Environment $template, string $templateFile, RequestStack $requestStack)
+    public function __construct(Environment $template, string $templateFile, RequestStack $requestStack)
     {
         $this->template = $template;
         $this->request = $requestStack;
@@ -26,14 +29,10 @@ class PaginationExtension extends \Twig_Extension
 
     public function getFunctions() {
         return array(
-            new \Twig_SimpleFunction('pagination', array($this, 'paginationFunction'), array(
+            new TwigFunction('pagination', array($this, 'paginationFunction'), array(
                 'is_safe' => array('html')
             ))
         );
-    }
-
-    public function getName() {
-        return 'tiloweb_pagination';
     }
 
     public function paginationFunction(Paginator $paginator, $get = 'page') {
