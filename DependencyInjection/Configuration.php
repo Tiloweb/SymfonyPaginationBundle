@@ -19,11 +19,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('tiloweb_pagination');
 
-        if(method_exists($treeBuilder, 'getRootNode')) {
-          $rootNode = $treeBuilder->getRootNode();
-        } else {
-          $rootNode = $treeBuilder->root('tiloweb_pagination');
-        }
+        $rootNode = method_exists($treeBuilder, 'getRootNode') ? $treeBuilder->getRootNode(); : $treeBuilder->root('tiloweb_pagination');
         
         $rootNode
             ->children()
