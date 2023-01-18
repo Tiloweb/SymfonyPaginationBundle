@@ -27,7 +27,7 @@ class PaginationExtension extends AbstractExtension
         $this->templateFile = $templateFile;
     }
 
-    public function getFunctions() {
+    public function getFunctions(): array {
         return array(
             new TwigFunction('pagination', array($this, 'paginationFunction'), array(
                 'is_safe' => array('html')
@@ -35,7 +35,7 @@ class PaginationExtension extends AbstractExtension
         );
     }
 
-    public function paginationFunction(Paginator $paginator, $get = 'page') {
+    public function paginationFunction(Paginator $paginator, $get = 'page'): string {
         $request = $this->request->getCurrentRequest();
         $pages = ceil($paginator->count() / $paginator->getQuery()->getMaxResults());
         $page = $request->query->getInt($get, 1);
