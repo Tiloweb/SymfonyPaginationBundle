@@ -2,7 +2,7 @@
   "name": "tiloweb/pagination-bundle",
   "description": "/",
   "type": "symfony-bundle",
-  "keywords": ["pager", "paginator", "pagination", "symfony2", "bundle", "tiloweb"],
+  "keywords": ["pager", "paginator", "pagination", "symfony", "bundle", "tiloweb"],
   "licence": "GNU",
   "authors": [
     {
@@ -11,8 +11,8 @@
     }
   ],
   "require": {
-    "php":                      ">=5.3.3",
-    "symfony/framework-bundle": ">=2.3",
+    "php":                      ">=8.0",
+    "symfony/framework-bundle": ">=5.0",
     "twig/twig":                "~1.12|~2|~3"
   },
   "autoload": {
