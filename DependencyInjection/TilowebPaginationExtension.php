@@ -17,7 +17,7 @@ class TilowebPaginationExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): array
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
