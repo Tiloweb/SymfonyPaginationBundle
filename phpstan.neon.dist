@@ -1,0 +1,11 @@
+parameters:
+    level: 8
+    paths:
+        - src
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Call to an undefined method Doctrine\\ORM\\AbstractQuery::getMaxResults\(\)#'
+
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon

@@ -1,8 +1,0 @@
-services:
-    Tiloweb\PaginationBundle\Twig\Extension\PaginationExtension:
-        arguments:
-            $template: "@twig"
-            $requestStack: "@request_stack"
-            $templateFile: "%tiloweb_pagination.template%"
-        tags:
-            - { name: twig.extension }

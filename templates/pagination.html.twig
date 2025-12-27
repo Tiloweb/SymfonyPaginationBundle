@@ -1,0 +1,77 @@
+{#
+ # Default pagination template for TilowebPaginationBundle
+ #
+ # Variables available:
+ #   - page: Current page number
+ #   - pages: Total number of pages
+ #   - page_range: Array of page numbers to display
+ #   - page_param: Query parameter name for page number
+ #   - has_previous: Boolean indicating if there's a previous page
+ #   - has_next: Boolean indicating if there's a next page
+ #   - previous_page: Previous page number
+ #   - next_page: Next page number
+ #
+ # @author Thibault HENRY <thibault@henry.pro>
+ #}
+{% if pages > 1 %}
+<nav aria-label="Pagination" role="navigation">
+    <ul class="pagination">
+        {# First page link #}
+        {% if pages > 2 %}
+        <li class="page-item{{ page == 1 ? ' disabled' : '' }}">
+            <a class="page-link" 
+               href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(page_param): 1}))) }}"
+               {% if page == 1 %}aria-disabled="true" tabindex="-1"{% endif %}
+               aria-label="{{ 'First page'|trans }}">
+                <span aria-hidden="true">&laquo;&laquo;</span>
+            </a>
+        </li>
+        {% endif %}
+
+        {# Previous page link #}
+        <li class="page-item{{ not has_previous ? ' disabled' : '' }}">
+            <a class="page-link" 
+               href="{{ has_previous ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(page_param): previous_page}))) : '#' }}"
+               {% if not has_previous %}aria-disabled="true" tabindex="-1"{% endif %}
+               {% if has_previous %}rel="prev"{% endif %}
+               aria-label="{{ 'Previous page'|trans }}">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        {# Page number links #}
+        {% for p in page_range %}
+        <li class="page-item{{ p == page ? ' active' : '' }}">
+            <a class="page-link" 
+               href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(page_param): p}))) }}"
+               {% if p == page %}aria-current="page"{% endif %}>
+                {{ p }}
+            </a>
+        </li>
+        {% endfor %}
+
+        {# Next page link #}
+        <li class="page-item{{ not has_next ? ' disabled' : '' }}">
+            <a class="page-link" 
+               href="{{ has_next ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(page_param): next_page}))) : '#' }}"
+               {% if not has_next %}aria-disabled="true" tabindex="-1"{% endif %}
+               {% if has_next %}rel="next"{% endif %}
+               aria-label="{{ 'Next page'|trans }}">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+
+        {# Last page link #}
+        {% if pages > 2 %}
+        <li class="page-item{{ page == pages ? ' disabled' : '' }}">
+            <a class="page-link" 
+               href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(page_param): pages}))) }}"
+               {% if page == pages %}aria-disabled="true" tabindex="-1"{% endif %}
+               aria-label="{{ 'Last page'|trans }}">
+                <span aria-hidden="true">&raquo;&raquo;</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
