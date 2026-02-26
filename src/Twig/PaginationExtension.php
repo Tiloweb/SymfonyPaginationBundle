@@ -20,12 +20,21 @@ use Twig\TwigFunction;
  */
 final class PaginationExtension extends AbstractExtension
 {
+    private Environment $twig;
+    private RequestStack $requestStack;
+    private string $template;
+    private int $pageRange;
+
     public function __construct(
-        private readonly Environment $twig,
-        private readonly RequestStack $requestStack,
-        private readonly string $template,
-        private readonly int $pageRange,
+        Environment $twig,
+        RequestStack $requestStack,
+        string $template,
+        int $pageRange,
     ) {
+        $this->twig = $twig;
+        $this->requestStack = $requestStack;
+        $this->template = $template;
+        $this->pageRange = $pageRange;
     }
 
     public function getFunctions(): array

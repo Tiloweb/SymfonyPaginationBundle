@@ -21,8 +21,11 @@ use Traversable;
  *
  * @author Thibault HENRY <thibault@henry.pro>
  */
-final readonly class PaginationResult implements Countable, IteratorAggregate
+final class PaginationResult implements Countable, IteratorAggregate
 {
+    private DoctrinePaginator $paginator;
+    private int $currentPage;
+    private int $itemsPerPage;
     private int $totalItems;
     private int $totalPages;
 
@@ -32,10 +35,13 @@ final readonly class PaginationResult implements Countable, IteratorAggregate
      * @param int $itemsPerPage Number of items per page
      */
     public function __construct(
-        private DoctrinePaginator $paginator,
-        private int $currentPage,
-        private int $itemsPerPage,
+        DoctrinePaginator $paginator,
+        int $currentPage,
+        int $itemsPerPage,
     ) {
+        $this->paginator = $paginator;
+        $this->currentPage = $currentPage;
+        $this->itemsPerPage = $itemsPerPage;
         $this->totalItems = $paginator->count();
         $this->totalPages = (int) ceil($this->totalItems / $itemsPerPage);
     }

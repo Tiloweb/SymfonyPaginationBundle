@@ -15,11 +15,14 @@ use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
  *
  * @author Thibault HENRY <thibault@henry.pro>
  */
-final readonly class Paginator
+final class Paginator
 {
+    private int $defaultItemsPerPage;
+
     public function __construct(
-        private int $defaultItemsPerPage = 10,
+        int $defaultItemsPerPage = 10,
     ) {
+        $this->defaultItemsPerPage = $defaultItemsPerPage;
     }
 
     /**
